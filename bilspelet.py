@@ -9,8 +9,12 @@ class Car():
     def drive(self):
         meters = random.randint(10, 30)
         self.position += meters 
-        print(f"{self.name} körde {meters} meter! Totalt: {self.position} meter.")       
+        print(f"{self.name} körde {meters} meter! Totalt: {self.position} meter.")
 
+def show_car_icon(car):
+    icon = "🚗"
+    space = " " *(car.position // 2)
+    print(f"{car.name:10}: {space} {icon} ({car.position} m)")
 
 garage = [
     Car('Volvo', 'blå'),
@@ -62,6 +66,10 @@ while True:
         if computer_car.position >= 100:
             print(f"\nDatorn vann med sin {computer_car.color} {computer_car.name}. Bättre lycka nästa gång!")
             break
+
+        print("\nPositioner:")
+        show_car_icon(player_car)
+        show_car_icon(computer_car)
     else:
         print("Tryck på 'K' och ENTER för att köra.")
 
